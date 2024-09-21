@@ -1,0 +1,106 @@
+﻿@model Pishgaman_Project.ViewModels.UserInfoViewModel
+
+@{
+    ViewData["Title"] = "افزودن کاربر";
+}
+
+<h2 class="text-center">افزودن کاربر جدید</h2>
+
+<div class="container">
+    <form id="userForm" asp-action="AddUserConfirm" method="post" class="row g-3" style="direction: rtl;">
+        <div class="col-md-6">
+            <label asp-for="FirstName" class="form-label"></label>
+            <input asp-for="FirstName" class="form-control" placeholder="@Model.FirstName" />
+            <span asp-validation-for="FirstName" class="text-danger"></span>
+        </div>
+
+        <div class="col-md-6">
+            <label asp-for="LastName" class="form-label"></label>
+            <input asp-for="LastName" class="form-control" placeholder="@Model.LastName" />
+            <span asp-validation-for="LastName" class="text-danger"></span>
+        </div>
+
+        <div class="col-md-6">
+            <label asp-for="PhoneNumber" class="form-label"></label>
+            <input asp-for="PhoneNumber" class="form-control" placeholder="@Model.PhoneNumber" />
+            <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+        </div>
+
+        <div class="col-md-6">
+            <label asp-for="Email" class="form-label"></label>
+            <input asp-for="Email" class="form-control" placeholder="@Model.Email" />
+            <span asp-validation-for="Email" class="text-danger"></span>
+        </div>
+
+        <div class="col-md-6">
+            <label asp-for="Password" class="form-label"></label>
+            <div class="input-group">
+                <input type="password" asp-for="Password" class="form-control" placeholder="@Model.Password" id="password" />
+                <span class="input-group-text" onclick="togglePassword('password')">
+                    <i class="fas fa-eye" id="password-icon"></i>
+                </span>
+            </div>
+            <span asp-validation-for="Password" class="text-danger"></span>
+        </div>
+
+        <div class="col-md-6">
+            <label asp-for="RePassword" class="form-label"></label>
+            <div class="input-group">
+                <input type="password" asp-for="RePassword" class="form-control" placeholder="@Model.RePassword" id="repassword" />
+                <span class="input-group-text" onclick="togglePassword('repassword')">
+                    <i class="fas fa-eye" id="repassword-icon"></i>
+                </span>
+            </div>
+            <span asp-validation-for="RePassword" class="text-danger"></span>
+        </div>
+
+        <div class="col-12 text-center mt-3">
+            <button type="submit" class="btn btn-primary">ثبت</button>
+            <a asp-action="Index" class="btn btn-secondary">لغو</a>
+        </div>
+    </form>
+</div>
+
+<style>
+    body {
+        font-family: 'B Nazanin';
+        margin-top: 3%;
+    }
+</style>
+
+
+<script>
+    document.getElementById('userForm').addEventListener('submit', function (event) {
+        event.preventDefault(); 
+
+        if ($(this).valid()) {
+            Swal.fire({
+                title: 'در حال ثبت...',
+                text: 'لطفا منتظر بمانید!',
+                icon: 'info',
+                allowOutsideClick: false,
+                showConfirmButton: false,
+                willOpen: () => {
+                    Swal.showLoading();
+                }
+            });
+
+            setTimeout(() => {
+                this.submit();
+            }, 1000);
+        }
+    });
+
+    function togglePassword(id) {
+        const passwordInput = document.getElementById(id);
+        const passwordIcon = document.getElementById(id + '-icon');
+
+        if (passwordInput.type === 'password') {
+            passwordInput.type = 'text';
+            passwordIcon.className = 'fas fa-eye-slash';
+        } else {
+            passwordInput.type = 'password';
+            passwordIcon.className = 'fas fa-eye';
+        }
+    }
+</script>

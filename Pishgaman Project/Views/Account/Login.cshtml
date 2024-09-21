@@ -1,0 +1,86 @@
+﻿@model Pishgaman_Project.ViewModels.SignInViewModel
+
+@{
+    ViewData["Title"] = "ورود کاربر";
+}
+
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">@ViewData["Title"]</h4>
+                    <form asp-controller="Account" asp-action="SignIn">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        <div class="col-md-12 form-group">
+                            <div class="form-group">
+                                <label asp-for="PhoneNumber" class="control-label"></label>
+                                <input asp-for="PhoneNumber" class="form-control" />
+                                <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-12 form-group">
+                            <label asp-for="Password" class="form-label"></label>
+                            <div class="input-group">
+                                <input type="password" asp-for="Password" class="form-control" id="password" />
+                                <span class="input-group-text" onclick="togglePassword('password')">
+                                    <i class="fas fa-eye" id="password-icon"></i>
+                                </span>
+                            </div>
+                            <span asp-validation-for="Password" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-primary btn-block">ورود</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    body {
+        direction: rtl;
+        font-family: 'Vazir', sans-serif;
+    }
+
+    .container {
+        margin-top: 50px;
+    }
+
+    .card {
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .card-body {
+        padding: 20px;
+    }
+
+    .form-group {
+        margin-bottom: 20px;
+    }
+
+    .input-group {
+        position: relative;
+    }
+
+    
+    
+</style>
+
+<script>
+    function togglePassword(id) {
+        const passwordInput = document.getElementById(id);
+        const passwordIcon = document.getElementById(id + '-icon');
+
+        if (passwordInput.type === 'password') {
+            passwordInput.type = 'text';
+            passwordIcon.className = 'fas fa-eye-slash';
+        } else {
+            passwordInput.type = 'password';
+            passwordIcon.className = 'fas fa-eye';
+        }
+    }
+</script>

@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.33530.505
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pishgaman Project", "Pishgaman Project\Pishgaman Project.csproj", "{0F2FFB6A-3F91-4A7D-BE3D-1841E61FDD8B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0F2FFB6A-3F91-4A7D-BE3D-1841E61FDD8B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0F2FFB6A-3F91-4A7D-BE3D-1841E61FDD8B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0F2FFB6A-3F91-4A7D-BE3D-1841E61FDD8B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0F2FFB6A-3F91-4A7D-BE3D-1841E61FDD8B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {6A32DADB-D715-4AAD-9F13-154B42606483}
+	EndGlobalSection
+EndGlobal

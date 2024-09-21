@@ -1,0 +1,50 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewData["Title"]</title>
+
+    <link rel="icon" type="image/x-icon" href="~/Layout/favicon.ico">
+
+
+    <link href="~/Layout/css/bootstrap.min.css" rel="stylesheet">
+    <link href="~/Layout/css/sweetalert2.min.css" rel="stylesheet">
+    <link href="~/Layout/css/all.min.css" rel="stylesheet">
+
+</head>
+<body>
+    <div class="container">
+        @RenderBody()
+    </div>
+    @{
+        if (TempData["msg"] != null && TempData["msgType"] != null)
+        {
+            <script>
+                $(document).ready(function () {
+                    var messageType = "@TempData["msgType"]";
+                    var message = "@TempData["msg"]";
+
+                    Swal.fire({
+                        icon: messageType,
+                        title: message,
+                        showConfirmButton: false,
+                        timer: 2000
+                    });
+                });
+            </script>
+        }
+    }
+
+
+    <script src="~/Layout/js/bootstrap.bundle.min.js"></script>
+    <script src="~/Layout/js/sweetalert2.all.min.js"></script>
+    <script src="~/Layout/js/all.min.js"></script>
+    <script src="~/layout/lib/jquery/dist/jquery.js"></script>
+    <script src="~/layout/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/layout/lib/jquery-validation/dist/jquery.validate.js"></script>
+    <script src="~/layout/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/layout/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
+    <script src="~/layout/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+</body>
+</html>

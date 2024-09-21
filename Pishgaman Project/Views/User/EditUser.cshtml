@@ -1,0 +1,47 @@
+﻿@{
+    ViewData["Title"] = "ویرایش اطلاعات";
+}
+
+@model UserEditViewModel
+<h2 class="text-center">ویرایش کاربر </h2>
+
+<div class="container">
+    <form id="userForm" asp-action="EditUserConfirm" method="post" class="row g-3" style="direction: rtl;">
+        <input type="hidden" asp-for="ID" value="@Model.ID"/>
+        <div class="col-md-6">
+            <label asp-for="FirstName" class="form-label"></label>
+            <input asp-for="FirstName" value="@Model.FirstName" class="form-control" placeholder="@Model.FirstName" />
+            <span asp-validation-for="FirstName" class="text-danger"></span>
+        </div>
+
+        <div class="col-md-6">
+            <label asp-for="LastName" class="form-label"></label>
+            <input asp-for="LastName" value="@Model.LastName" class="form-control" placeholder="@Model.LastName" />
+            <span asp-validation-for="LastName" class="text-danger"></span>
+        </div>
+
+        <div class="col-md-6">
+            <label asp-for="PhoneNumber" class="form-label"></label>
+            <input asp-for="PhoneNumber" value="@Model.PhoneNumber" class="form-control" placeholder="@Model.PhoneNumber" />
+            <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+        </div>
+
+        <div class="col-md-6">
+            <label asp-for="Email" class="form-label"></label>
+            <input asp-for="Email" value="@Model.Email" class="form-control" placeholder="@Model.Email" />
+            <span asp-validation-for="Email" class="text-danger"></span>
+        </div>        
+
+        <div class="col-12 text-center mt-3">
+            <button type="submit" class="btn btn-primary">ویرایش</button>
+            <a asp-action="Index" class="btn btn-secondary">لغو</a>
+        </div>
+    </form>
+</div>
+
+<style>
+    body {
+        font-family: 'B Nazanin';
+        margin-top: 3%;
+    }
+</style>
